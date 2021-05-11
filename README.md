@@ -138,9 +138,9 @@ Command for PC
 ## Feedback
 
 For any queries, reach out to the Developers :
+* [Siddharth Pandey](mailto:siddharth25pandey@gmail.com) (**Front End & Back End**)
 * [Priyam Bajpai](mailto:priyambajpai@yahoo.in) (**Front End & Back End**)
 * [Shreyash Mishra](mailto:shreyashm1601@gmail.com) (**Front End & Back End**)
-* [Siddharth Pandey](mailto:siddharth25pandey@gmail.com) (**Front End & Back End**)
 * [Naveen Kumar](mailto:naveenkumar.k19@gmail.com) (**Front End & Back End**)
 * [Yaduraj Deshmukh](mailto:yadurajdeshmukh2.303@gmail.com) (**Front End & Back End**)
 
