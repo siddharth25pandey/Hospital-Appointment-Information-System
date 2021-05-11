@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        .footer {
+            position: fixed;
+            left: 0px;
+            margin-left: 300px;
+            bottom: 0px;
+            width: 100%;
+
+            z-index: 100;
+        }
+        @media (max-width: 700px){
+            .footer{
+                width: 100vw;
+                margin-left: 0px;
+                
+            }
+            .theme-switch-wrapper{
+                right: 10px !important;
+            }
+
+            
+        }
+    </style>
+     </head>
+
+        <body>
+            <footer class="footer">
+                <div class="container-fluid">
+                    <nav style="text-align: center;">
+                        <ul type="none">
+                            <li>
+                                <a class="sps" style="margin-left: -20%" href="#">
+                          &copy;Group 20
+                        </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!-- your footer here -->
+                </div>
+                <div class="theme-switch-wrapper" style="right: 310px">
+                    <label class="theme-switch" for="checkbox">
+                        <input type="checkbox" id="checkbox"/>
+                        <div class="slider round"></div>
+                    </label>
+                </div>
+            </footer>
+            
+        </body>
+
+</html>
+
+
+
+
+

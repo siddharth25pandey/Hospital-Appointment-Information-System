@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+    	.nav-link{  		
+    		padding: 20px;
+    	}
+    	.nav-item a:hover{
+    		line-height: fixed;
+            font-size: 1.2em;
+            color: #28acea !important;
+    	}
+
+    	@media (max-width: 550px){
+    	.navbar-nav{
+    		flex-direction: column !important;
+    	}
+    	
+    	#locha{
+    		align-items: center;
+    	}
+    	.navbar-wrapper{
+    		width: 100vw;
+    		display: flex;
+    		justify-content: center;
+    	}
+    	#ulfat{
+    		width: 100vw;
+    		align-items: center;
+    	}
+    	.navbar-wrapper p{
+    		display: none;
+    	}
+    	.navbar-wrapper img{
+    		margin-left: -5%;
+    	}
+    }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-transparent fixed-top">
+        <div id="locha" class="container-fluid">
+            <div class="navbar-wrapper">
+                <img src="https://www.iasplus.com/en/images/responsive/badges/g20/@@images/465e1ae9-46a0-4131-b3d0-984fcbb8233a.png" height="90" width="110">
+                <p class="sps">Group 20</p>
+            </div>
+            <div id="ulfat">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link sps" href="{% url 'home.html' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link sps" href="{% url 'login.html' %}">Login/Sign Up</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+</body>
+
+</html>

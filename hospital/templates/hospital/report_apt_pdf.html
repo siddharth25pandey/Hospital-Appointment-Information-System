@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body style="font-size: 15px;"">
+
+      <center>
+        <h1 style="color:skyblue; font-size: 30px;">Hospital Information Management System</h4>
+        <br><br>
+        <h2 style="color: rgb(222, 135, 235); font-size: 25px;">Appointment Report</h5>
+        <br><br><br><br>
+      </center>
+      <b>Admit Date: </b>{{admitDate}}<br>
+      <b>Release Date: </b>{{releaseDate}}<br>
+      <b>Days Spent: </b>{{days}} days<br>
+      <b>Patient Name : </b>{{patientName}}<br>
+      <b>Patient Address : </b>{{pat_add}}<br>
+      <b>Doctor Name :</b>{{doctorName}}<br>
+      <br><br><br>
+      <b>Disease and Symptoms :</b><br>
+      {{desc}}
+      <br><br><br>
+      <b>Medicines :</b><br>
+      {% for m in med %}
+        <tr><td>{{ m.0 }}</td></tr>
+      {% endfor %}
+    </body>
+</html>

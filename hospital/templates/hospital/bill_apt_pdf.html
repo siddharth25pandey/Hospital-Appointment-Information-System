@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body style="font-size: 15px;"">
+      <center>
+        <h1 style="color:skyblue; font-size: 30px;">Hospital Information Management System</h4>
+        <br><br>
+        <h2 style="color: rgb(222, 135, 235); font-size: 25px;">Appointment Bill</h5>
+        <br><br><br><br>
+      </center>
+      <b>Appointment Date: </b>{{aptDate}}<br>
+      <b>Appointment Time: </b>{{aptTime}}<br>
+      <b>Doctor Name : </b>{{doctorName}}<br>
+      <b>Patient Name : </b>{{patientName}}<br>
+      <b>Patient Address : </b>{{pat_add}}<br>
+      <br><br><br>
+      <b>Disease and Symptoms :</b><br>
+      {{desc}}
+      <br><br><br>
+      <table>
+        <th>Item</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Total Price</th>
+        <tr><td>Doctor Fee</td><td style="text-align: center;"> - </td><td style="text-align: center;">Rs. {{doctorFee}}</td><td style="text-align: center;">Rs. {{doctorFee}}</td></tr>
+        {% for m in med %}
+          <tr><td>{{ m.0 }}</td><td style="text-align: center;">{{ m.1 }}</td><td style="text-align: center;">Rs. {{ m.2 }}</td><td style="text-align: center;">Rs. {{ m.3 }}</td></tr>
+        {% endfor %}
+        <tr><td>Hospital Charges</td><td style="text-align: center;"> - </td><td style="text-align: center;">Rs. {{hospfee}}</td><td style="text-align: center;">Rs. {{hospfee}}</td></tr>
+        <tr><td>Maintenence Charges</td><td style="text-align: center;"> - </td><td style="text-align: center;">Rs. {{mainp}}</td><td style="text-align: center;">Rs. {{mainp}}</td></tr>
+        <tr><td><b>Total Due :</b></td><td></td><td></td><td style="text-align: center;">Rs. {{tot }}</td></tr>
+
+      </table>
+    </body>
+</html>

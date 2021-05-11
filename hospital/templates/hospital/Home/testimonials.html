@@ -1,0 +1,257 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		
+.darkEdition .fill
+{
+  background-color: rgba(2,12,27) !important;
+}
+
+.lightEdition .fill
+{
+  background-color: rgba(255,255,255);
+}
+
+
+.cards
+{
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content:center;
+  position: relative;
+  height:21.875rem;
+  width:100%;
+}
+
+.card
+{
+  display:flex;
+  width:27.8125rem;
+  height:16.25rem;
+  border-radius:0.5rem;
+  transform-origin:center center;
+  transform:scale(1) translate(0px,0px) perspective( 750px ) rotateY(0deg);
+  transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+  transition-duration: 0.5s;
+  position:absolute;
+  top:0;
+  box-shadow:0 30px 50px rgba(0,0,0,0.1);
+  z-index:3;
+  cursor: pointer;
+  overflow:hidden;
+}
+
+.card *
+{
+  pointer-events: none;
+}
+
+.innerdiv{
+    background-color: rgba(255,255,255,0.3);
+    height: 100%;
+    width: 100%;
+  }
+
+.darkEdition .innerdiv{
+    background-color: rgba(255,255,255,0.2) !important;
+  }
+
+.lightEdition .innerdiv{
+    background-color: rgba(220,220,220,0.3);
+  }
+
+.card--left
+{
+  transform:scale(0.75) translate(-335px,0px) perspective( 750px ) rotateY(10deg);
+  box-shadow:0 15px 25px rgba(0,0,0,0.1);
+  z-index:1;
+}
+
+.card--center
+{
+  transform:scale(1) translate(0px, 0px) perspective( 750px ) rotateY(0deg);
+  box-shadow:0 30px 50px rgba(0,0,0,0.1);
+  z-index:3;
+}
+
+.card--right
+{
+  transform:scale(0.75) translate(335px,0px) perspective( 750px ) rotateY(-10deg);
+  box-shadow:0 15px 25px rgba(0,0,0,0.1);
+  z-index:1;
+}
+
+.card__icon
+{
+  width:30%;
+  height:100%;
+  background-color: #28acea;
+  position:relative;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card__icon img{
+  height: 100px;
+  width: 100px;
+}
+
+.card__detail
+{
+  flex:1;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media only screen and (max-width : 736px)
+{
+  .cards
+  {
+    flex-direction:column;
+    margin:auto 0;
+  }
+
+  .card
+  {
+    display:flex;
+    width:90%;
+  }
+
+  .card--left
+  {
+    transform:scale(0.75) translate(0px, -150px) perspective(750px) rotateY(0) rotateX(-10deg) translateZ(-5px);
+  }
+
+  .card--center
+  {
+    transform:scale(1) translate(0px, 0px) perspective( 750px ) rotateY(0deg)  rotateX(0deg) translateZ(5px);
+  }
+
+  .card--right
+  {
+    transform:scale(0.75) translate(0px, 150px) perspective(750px) rotateY(0) rotateX(10deg) translateZ(-5px);
+  }
+
+  .card__icon:before
+  {
+    transform:scale(0.75);
+  }
+}
+	</style>
+</head>
+<body>
+	<div class="cards">
+  <div class="card fill" data-card="0">
+    <div class="card__icon">
+      <img src="{%static 'assets/img/trophy.svg' %}">
+    </div>
+    <div class="card__detail sps">
+      <div class="innerdiv">
+        <h2>BEST HOSPITAL 2012</h2>
+        <br>
+        <p>TIMES OF INDIA</p>
+      </div>
+    </div>
+  </div>
+  <div class="card fill" data-card="1">
+    <div class="card__icon">
+      <img src="{%static 'assets/img/trophy.svg' %}">
+    </div>
+    <div class="card__detail sps">
+      <div class="innerdiv">
+        <h2>INNOVATION AWARDS 2016</h2>
+        <br>
+        <p>MEDICAL COUNCIL</p>
+      </div>
+    </div>
+  </div>
+  <div class="card fill" data-card="2">
+    <div class="card__icon">
+      <img src="{%static 'assets/img/trophy.svg' %}">
+    </div>
+    <div class="card__detail sps">
+      <div class="innerdiv">
+        <h2>BEST HOSPITAL 2019</h2>
+        <br>
+        <p>GLOBAL AWARDS</p>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+	const Cards = ((() => {
+  /*
+   * @description dom loaded event listener
+   */
+  window.addEventListener('DOMContentLoaded', () => {setTimeout(init,1)}, true);
+
+  /*
+   * @method init
+   * @parameter e {event}
+   * @description initiates event listeners on all cards
+   */
+  function init(e)
+  {
+    if(document.querySelector(".cards"))
+    {
+      let cards = document.querySelector(".cards");
+      cards.addEventListener('click', clicked, false);
+      document.querySelectorAll(".cards .card")[1].click();
+    }
+  }
+
+  /*
+   * @method clicked
+   * @parameter e {event}
+   * @description this is the callback from the assigned event listener binding
+   */
+  function clicked(e)
+  {
+    let card = e.target;
+    if(card.getAttribute("data-card")){rearrange(card.getAttribute("data-card"));}
+  }
+
+  /*
+   * @method rearrange
+   * @parameter card {object}
+   * @description this is the callback from the assigned event listener binding
+   */
+  function rearrange(card)
+  {
+    let cards = document.querySelectorAll(".cards .card");
+    for(let n = 0; n < cards.length; n++)
+    {
+      cards[n].classList.remove("card--left");
+      cards[n].classList.remove("card--center");
+      cards[n].classList.remove("card--right");
+    }
+    cards[card].classList.add("card--center");
+    if(card == 0)
+    {
+      cards[2].classList.add("card--left");
+      cards[1].classList.add("card--right");
+    }
+    if(card == 1)
+    {
+      cards[0].classList.add("card--left");
+      cards[2].classList.add("card--right");
+    }
+    if(card == 2)
+    {
+      cards[1].classList.add("card--left");
+      cards[0].classList.add("card--right");
+    }
+  }
+
+  return {
+    init
+  }
+})());
+</script>
+</body>
+</html>

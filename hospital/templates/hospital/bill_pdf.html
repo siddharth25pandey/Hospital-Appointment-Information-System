@@ -1,0 +1,144 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body style="font-size: 15px;"">
+
+      <center>
+        <h1 style="color:skyblue; font-size: 30px;">Hospital Information Management System</h4>
+        <br><br>
+        <h2 style="color: rgb(222, 135, 235); font-size: 25px;">Admit Bill</h5>
+        <br><br><br><br>
+      </center>
+      <b>Admit Date: </b>{{admitDate}}<br>
+      <b>Release Date: </b>{{releaseDate}}<br>
+      <b>Days Spent: </b>{{days}} days<br>
+      <b>Patient Name : </b>{{patientName}}<br>
+      <b>Patient Address : </b>{{pat_add}}<br>
+      <br><br><br>
+      <b>Disease and Symptoms :</b><br>
+      {{desc}}
+      <br><br><br>
+      <table>
+        <th>Item</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Total Price</th>
+        <tr><td>Room Charges</td><td style="text-align: center;">{{days}} Days</td><td style="text-align: center;">Rs. {{roomCharge}}</td><td style="text-align: center;">Rs. {{tc}}</td></tr>
+        <tr><td>Doctor Fee</td><td style="text-align: center;"> - </td><td style="text-align: center;">Rs. {{doctorFee}}</td><td style="text-align: center;">Rs. {{doctorFee}}</td></tr>
+        {% for m in med %}
+          <tr><td>{{ m.0 }}</td><td style="text-align: center;">{{ m.1 }}</td><td style="text-align: center;">Rs. {{ m.2 }}</td><td style="text-align: center;">Rs. {{ m.3 }}</td></tr>
+        {% endfor %}
+        <tr><td>Hospital Charges</td><td style="text-align: center;"> - </td><td style="text-align: center;">Rs. {{hospfee}}</td><td style="text-align: center;">Rs. {{hospfee}}</td></tr>
+        <tr><td>Maintenence Charges</td><td style="text-align: center;"> - </td><td style="text-align: center;">Rs. {{mainp}}</td><td style="text-align: center;">Rs. {{mainp}}</td></tr>
+        <tr><td>  </td><td></td><td></td><td></td></tr>
+        <tr><td>  </td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td></tr>
+        <tr><td><b>Total Due :</b></td><td></td><td></td><td style="text-align: center;">Rs. {{tot }}</td></tr>
+
+      </table>
+
+
+
+
+      <!--
+        <div class="invoice-box sps">
+            <table cellpadding="0" cellspacing="0">
+              <tr class="top">
+                <td colspan="3">
+                  <table>
+                    <tr>
+                      <td class="title sps">
+                        <h4 style="color:skyblue;">Hospital Information Management System</h4>
+                      </td>
+                        <br><br>
+        
+                     
+                    </tr>
+                    <tr>
+                    <td class="title sps" style="text-align: center">
+                      <h5 style="color: rgb(222, 135, 235);">Admit Bill</h5>
+                    </td>
+                  </tr>
+                  <br><br>
+                  </table>
+                </td>
+              </tr>
+        
+              <tr class="information sps">
+                <td colspan="2">
+                  <table>
+                    <tr>
+                     <td>
+        
+                        Admit Date: {{admitDate}}<br>
+                        Release Date: {{releaseDate}}<br>
+                        Days Spent: {{days}} days
+            
+                      </td>
+                      </tr>
+                      <tr>
+                      <td>
+                        Patient Name : {{patientName}}<br>
+                        Patient Address : {{pat_add}}<br>
+                      </td>
+                      <br>
+              </tr>
+              <tr>
+              <td>
+                Doctor Name :
+                {{doctorName}}<br>
+
+              </td>
+              </tr>
+                      
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+        
+        
+              <tr class="information sps">
+                <td colspan="2">
+                  <table>
+                    <tr>
+                      <td>
+                        Disease and Symptoms :<br>
+                        {{desc}}
+                      </td>
+        
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+        
+        
+        
+              <tr class="sps">
+                <td>
+                  <table>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total Price</th>
+                    <tr><td>Room Charges</td><td style="text-align: left;">{{days}} Days</td><td>Rs. {{roomcharges}}</td><td>Rs. {{tc}}</td></tr>
+                    <tr><td>Doctor Fee</td><td style="text-align: left;"> - </td><td>Rs. {{doctorFee}}</td><td>Rs. {{doctorFee}}</td></tr>
+                    {% for m in med %}
+                      <tr><td>{{ m.0 }}</td><td style="text-align: left;">{{ m.1 }}</td><td>Rs. {{ m.2 }}</td><td>Rs. {{ m.3 }}</td></tr>
+                    {% endfor %}
+                    <tr><td>Hospital Charges</td><td style="text-align: left;"> - </td><td>Rs. {{hospfee}}</td><td>Rs. {{hospfee}}</td></tr>
+                    <tr><td>Maintenence Charges</td><td style="text-align: left;"> - </td><td>Rs. {{mainp}}</td><td>Rs. {{mainp}}</td></tr>
+                    <tr><td></td><td></td><td></td><td></td></tr>
+                    <tr><td>Total Due :</td><td></td><td></td><td>Rs. {{tot }}</td></tr>
+        
+                  </table>
+                </td>
+              </tr>
+              
+        
+        
+            </table>
+        </div>
+        -->
+    </body>
+</html>

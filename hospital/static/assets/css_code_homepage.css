@@ -1,0 +1,102 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: Century Gothic;
+}
+
+#choms{
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100vw;
+	background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(bg.jpg);
+	z-index: -1;
+}
+
+header{
+	background-color: rgba(255,255,255,0.60);
+	height: 100vh;
+	background-size: cover;
+	background-position: center;
+}
+ul{
+	float: right;
+	list-style-type: none;
+	margin-top: 20px;
+}
+ul li{
+	display: inline-block;
+}
+ul li a{
+	text-decoration: none;
+	color: #000;
+	padding: 4px 16px;
+	border: 1px solid #000;
+	transition: 0.6s ease;
+}
+
+ul li a:hover{
+	background-color: #000;
+	color: #000;
+}
+
+ul li.active a{
+	background-color: #000;
+	color: #000;
+}
+
+.main{
+	max-width: 1200px;
+	margin: auto;
+}
+
+.title{
+	position: absolute;
+	top: 35%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+
+.title h1{
+	color: #000;
+	font-size: 85px;
+}
+
+.button{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+
+.btn{
+	border: 1px solid #000;
+	padding: 13px 39px;
+	color: #000;
+	text-decoration: none; 
+	transition: 0.6s ease;
+
+}
+.btn:hover{
+	background-color: #000;
+	color: #000;
+}
+
+.login{
+	position: absolute;
+	top: 75%;
+	left: 51%;
+	transform: translate(-50%,-50%);
+}
+.log{
+	padding: 20px 60px;
+	color: #000;
+	text-decoration: none; 
+	transition: 0.6s ease;
+
+}
+.log:hover{
+	background-color: #000;
+	color: #000;
+}

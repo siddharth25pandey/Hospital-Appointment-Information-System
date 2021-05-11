@@ -1,0 +1,496 @@
+{% load static %}
+{% load widget_tweaks %}
+<!--
+=========================================================
+* Material Dashboard Dark Edition - v2.1.0
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/material-dashboard-dark
+* Copyright 2019 Creative Tim (http://www.creative-tim.com)
+
+* Coded by www.creative-tim.com
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/png" href="https://www.iasplus.com/en/images/responsive/badges/g20/@@images/465e1ae9-46a0-4131-b3d0-984fcbb8233a.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>Hospital Management System</title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- CSS Files -->
+  <link href="{% static 'assets/css/material-dashboard.css'%}" rel="stylesheet" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      var dragTheme = window.localStorage.getItem('checkbox');
+      if(dragTheme==="true"){
+        $("#jhamela").removeClass("darkEdition");
+          window.localStorage.setItem('checkbox', true);
+          var dragTheme = window.localStorage.getItem('checkbox');
+          console.log(dragTheme);
+          $("#checkbox").click();
+      }
+      $("#checkbox").click(function(){
+        if($('#checkbox').prop("checked")){
+          $("#jhamela").removeClass("darkEdition");
+          window.localStorage.setItem('checkbox', true);
+          var dragTheme = window.localStorage.getItem('checkbox');
+          console.log(dragTheme); 
+        }
+        else{
+          $("#jhamela").addClass("darkEdition");
+          window.localStorage.setItem('checkbox', false);
+          var dragTheme = window.localStorage.getItem('checkbox');
+          console.log(dragTheme); 
+        }
+      });
+    });
+  </script>
+  <style>
+
+* {
+  box-sizing: border-box;
+}
+h1{
+  margin-left: 40%;
+  align-self: center;
+}
+.row {
+  display: flex;
+  margin-right: -15px;
+  margin-left: -15px;
+  flex-wrap: wrap;
+}
+.mt--7{
+  padding-top: 50px;
+}
+.col-4,.col-8,
+.col,.col-md-10,
+.col-md-12,.col-lg-3,
+.col-lg-4,.col-lg-6,
+.col-lg-7,.col-xl-4,
+.col-xl-6,.col-xl-8 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.col-4 {
+  max-width: 33.33333%;
+  flex: 0 0 33.33333%;
+}
+.col-8 {
+  max-width: 66.66667%;
+  flex: 0 0 66.66667%;
+}
+@media (max-width: 800px){
+  .row{
+    display: block;
+  }
+  .col-4{
+    max-width: 100%;
+  }
+  .col-8{
+    max-width: 100%;
+  }
+  h1{
+    margin-left: 40%;
+    align-self: center;
+  }
+  .mt--7{
+    padding-top: 100px;
+  }
+}
+@media (min-width: 768px) {
+  .col-md-10 {
+    max-width: 83.33333%;
+    flex: 0 0 83.33333%;
+  }
+  .col-md-12 {
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+}
+@media (min-width: 992px) {
+  .col-lg-3 {
+    max-width: 25%;
+    flex: 0 0 25%;
+  }
+  .col-lg-4 {
+    max-width: 33.33333%;
+    flex: 0 0 33.33333%;
+  }
+  .col-lg-6 {
+    max-width: 50%;
+    flex: 0 0 50%;
+  }
+  .col-lg-7 {
+    max-width: 58.33333%;
+    flex: 0 0 58.33333%;
+  }
+  .order-lg-2 {
+    order: 2;
+  }
+}
+@media (min-width: 1200px) {
+  .col-xl-4 {
+    max-width: 33.33333%;
+    flex: 0 0 33.33333%;
+  }
+  .col-xl-6 {
+    max-width: 50%;
+    flex: 0 0 50%;
+  }
+  .col-xl-8 {
+    max-width: 66.66667%;
+    flex: 0 0 66.66667%;
+  }
+  .order-xl-1 {
+    order: 1;
+  }
+  .order-xl-2 {
+    order: 2;
+  }
+}
+.form-control {
+  font-size: 1rem;
+  line-height: 1.5;
+  display: block;
+  width: 100%;
+  height: calc(2.75rem + 2px);
+  padding: .625rem .75rem;
+  transition: all .2s cubic-bezier(.68, -.55, .265, 1.55);
+  color: #28acea;
+  border: 1px solid #cad1d7;
+  border-radius: .375rem;
+  background-color: #fff;
+  background-clip: padding-box;
+  box-shadow: none;
+}
+.form-group {
+  margin-bottom: 1.5rem;
+}
+.form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-clip: border-box;
+  margin-bottom: 50px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, .4);
+}
+
+@media (max-width: 1200px){
+	.card{
+		margin-bottom: 100px;
+	}
+}
+
+.card>hr {
+  margin-right: 0;
+  margin-left: 0;
+}
+.card-body {
+  padding: 1.5rem;
+  flex: 1 1 auto;
+}
+.card-header {
+  margin-bottom: 0;
+  padding: 1.25rem 1.5rem;
+  
+}
+
+.pt-8 {
+  padding-top: 8rem !important;
+}
+.card-profile-image {
+  position: relative;
+}
+.card-profile-image img {
+  position: absolute;
+  left: 50%;
+  max-width: 180px;
+  transition: all .15s ease;
+  transform: translate(-50%, -30%);
+  border-radius: .375rem;
+}
+@media (min-width: 768px) {
+  .main-content .container-fluid {
+    padding-right: 39px !important;
+    padding-left: 39px !important;
+  }
+}
+.avatar {
+  font-size: 1rem;
+  display: inline-flex;
+  width: 48px;
+  height: 48px;
+  color: #fff;
+  border-radius: 50%;
+  background-color: #adb5bd;
+  align-items: center;
+  justify-content: center;
+}
+.avatar img {
+  width: 100%;
+  border-radius: 50%;
+}
+.avatar-sm {
+  font-size: .875rem;
+  width: 36px;
+  height: 36px;
+}
+    </style>
+</head>
+
+<body id="jhamela" class="darkEdition lightEdition">
+  {% include "hospital/Home/preloader.html" %}
+
+  <div id="myDiv" class="animate-bottom wrapper" style="display:none;text-align: center;position: relative;">
+    <div class="sidebar" data-color="azure" data-background-color="black" data-image="{% static 'assets/img/sidebar-2.jpg'%}">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+        Tip 2: you can also add an image using data-image tag
+      -->
+      <div class="logo"><a href="#" class="simple-text logo-normal">
+        <img src="https://www.iasplus.com/en/images/responsive/badges/g20/@@images/465e1ae9-46a0-4131-b3d0-984fcbb8233a.png">
+        <br> 
+      GROUP 20
+      </a></div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          
+          <li class="nav-item active  ">
+            <a class="nav-link" href="{% url 'profile_pat.html' %}">
+              <i class="material-icons">person</i>
+              <p>Profile</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="{% url 'bookapp.html' %}">
+              <i class="material-icons">content_paste</i>
+              <p>Book Appointment</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="{% url 'admit_details.html' %}">
+              <i class="material-icons">content_paste</i>
+              <p>Admit Details</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'yourhealth.html' %}">
+              <i class="material-icons">favorite</i>
+              <p>Your Health</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'calladoc.html' %}">
+              <i class="material-icons">library_books</i>
+              <p>Call A Doc</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="{% url 'medicalreport.html' %}">
+              <i class="material-icons">favorite</i>
+              <p>Medical Reports</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'feedback.html' %}">
+              <i class="material-icons">bubble_chart</i>
+              <p>Feedback</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="{% url 'logout' %}">
+              <i class="material-icons">logout</i>
+              <p>Logout</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="main-panel">
+      <div class="main-content">
+        <!-- Header -->
+        <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center">
+          <h1 style="color: #28acea; text-align: center; ">Profile</h1>
+          <!-- Mask -->
+          <span class="mask bg-gradient-default opacity-8"></span>
+          <!-- Header container -->
+          <div class="container-fluid d-flex align-items-center">
+            <div class="row">
+              <div class="col-lg-7 col-md-10">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="main-content">
+          <div class="container-fluid mt--7">
+            <div class="row">
+              <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
+                <div class="card card-profile shadow" style="background-color: rgba(220,220,220,0.3);">
+                  <div class="row justify-content-center">
+                    <div class="col-lg-3 order-lg-2">
+                      <div class="card-profile-image">
+                        <a href="#">
+                          <img src="{{ pat.image.url }}" width="200 px" height="180 px" class="rounded-circle"><br><br>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+                    <div class="d-flex justify-content-between">
+                    </div>
+                  </div>
+                  <div class="card-body pt-0 pt-md-4">
+                    <div class="row">
+                      <div class="col">
+                        <div class="card-profile-stats d-flex justify-content-center mt-md-5">   
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-center sps">
+                      <h3>
+                        {{ pat.firstname }} {{ pat.lastname }}<span class="font-weight-light">, {{ pat.age }}</span>
+                      </h3>
+                      <div class="h5 font-weight-300">
+                        <i class="ni location_pin mr-2"></i>{{ pat.city }}, {{ pat.country }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                
+              <div class="col-xl-8 order-xl-1">
+                <form method="POST" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  <div class="card">
+                    <p>
+                      <div id="profilebg" class="card-body">
+                        <div class="pl-lg-4">
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <div class="form-group focused">
+                                <label class="form-control-label" for="input-username" style="color: #fff;">Username</label>
+                                <input readonly type="text" id="input-username" class="form-control form-control-alternative" placeholder="{{ user.username }}">
+                              </div>
+                            </div>
+                            <div class="col-lg-6">
+                              <div class="form-group">
+                                <label class="form-control-label" for="input-email" style="color: #fff;">Email address</label>
+                                <input readonly type="email" id="input-email" class="form-control form-control-alternative" placeholder="{{ user.email }}">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <div class="form-group focused">
+                                <label class="form-control-label" for="input-first-name" style="color: #fff;">First Name</label>
+                                  {{ p_form.firstname|add_class:"form-control form-control-alternative" }}
+                                  {{ p_form.firstname.errors }}
+                              </div>
+                            </div>
+                            <div class="col-lg-6">
+                              <div class="form-group">
+                                <label class="form-control-label" for="input-last-name" style="color: #fff;">Last Name</label>
+                                {{ p_form.lastname|add_class:"form-control form-control-alternative" }}
+                                {{ p_form.lastname.errors }}
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <div class="form-group focused">
+                                <label class="form-control-label" for="input-age" style="color: #fff;">Age</label>
+                                <input readonly type="text" id="input-username" class="form-control form-control-alternative" placeholder="{{ age }}">
+                              </div>
+                            </div>
+                            <div class="col-lg-6">
+                              <div class="form-group">
+                                <label class="form-control-label" for="input-date" style="color: #fff;">Date of Birth</label>
+                                {{ p_form.dob|add_class:"form-control form-control-alternative" }}
+                                {{ p_form.dob.errors }}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <hr class="my-4">
+                        <div class="pl-lg-4">
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="form-group focused">
+                                <label class="form-control-label" for="input-address" style="color: #fff;">Address</label>
+                                {{ p_form.address|add_class:"form-control form-control-alternative" }}
+                                {{ p_form.address.errors }}
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-lg-4">
+                              <div class="form-group focused">
+                                <label class="form-control-label" for="input-city" style="color: #fff;">City</label>
+                                {{ p_form.city|add_class:"form-control form-control-alternative" }}
+                                {{ p_form.city.errors }}
+                              </div>
+                            </div>
+                            <div class="col-lg-4">
+                              <div class="form-group focused">
+                                <label class="form-control-label" for="input-country" style="color: #fff;">Country</label>
+                                {{ p_form.country|add_class:"form-control form-control-alternative" }}
+                                {{ p_form.country.errors }}
+                              </div>
+                            </div>
+                            <div class="col-lg-4">
+                              <div class="form-group">
+                                <label class="form-control-label" for="input-postalcode" style="color: #fff;">Postal code</label>
+                                {{ p_form.postalcode|add_class:"form-control form-control-alternative" }}
+                                {{ p_form.postalcode.errors }}
+                              </div>
+                            </div>
+                            <div class="col-md-12">
+                              <div class="form-group">
+                                <label class="form-control-label" for="input-image" style="color: #fff;">Profile Pic</label>
+                                {{ p_form.image|add_class:"form-control form-control-alternative" }}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </p>
+                    <div class="form-group">
+                      <button class="btn btn-sm btn-primary" type="submit">Update</button>
+                  </div>
+                    </div>
+    
+              </form>
+            </div>
+          </div>
+        </div>
+    
+        <br><br><br>
+        {% include "hospital/Patient/footer.html" %}
+      </div>
+    </div>
+  </div>
+</body>
+</html>

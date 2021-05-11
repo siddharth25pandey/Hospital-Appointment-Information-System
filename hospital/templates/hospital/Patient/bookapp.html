@@ -1,0 +1,308 @@
+{% load static %} {% load widget_tweaks %}
+<!--
+=========================================================
+* Material Dashboard Dark Edition - v2.1.0
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/material-dashboard-dark
+* Copyright 2019 Creative Tim (http://www.creative-tim.com)
+
+* Coded by www.creative-tim.com
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="{% static 'assets/img/apple-icon.png'%}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="{% static 'assets/img/favicon.png'%}"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Hospital Management System</title>
+    <meta
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no"
+      name="viewport"
+    />
+    <!--     Fonts and icons     -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"
+    />
+    <!-- CSS Files -->
+    <link
+      href="{% static 'assets/css/material-dashboard.css'%}"
+      rel="stylesheet"
+    />
+    <link href="{% static 'assets/css/form.css'%}" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        var dragTheme = window.localStorage.getItem("checkbox");
+        if (dragTheme === "true") {
+          $("#jhamela").removeClass("darkEdition");
+          window.localStorage.setItem("checkbox", true);
+          var dragTheme = window.localStorage.getItem("checkbox");
+          console.log(dragTheme);
+          $("#checkbox").click();
+        }
+        $("#checkbox").click(function () {
+          if ($("#checkbox").prop("checked")) {
+            $("#jhamela").removeClass("darkEdition");
+            window.localStorage.setItem("checkbox", true);
+            var dragTheme = window.localStorage.getItem("checkbox");
+            console.log(dragTheme);
+          } else {
+            $("#jhamela").addClass("darkEdition");
+            window.localStorage.setItem("checkbox", false);
+            var dragTheme = window.localStorage.getItem("checkbox");
+            console.log(dragTheme);
+          }
+        });
+      });
+    </script>
+    <style>
+      .row {margin: 0 -10px;
+padding-left: 15px;
+padding-right: 15px;}
+
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+th {
+    border: 1px solid #28acea;
+    border-collapse: collapse;
+    padding:10px;
+}
+
+td {
+    border: 1px solid #28acea;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    padding:10px;
+}
+    </style>
+  </head>
+
+  <body id="jhamela" class="darkEdition lightEdition">
+    {% include "hospital/Home/preloader.html" %}
+
+    <div
+      id="myDiv"
+      class="animate-bottom wrapper"
+      style="display: none; text-align: center; position: relative"
+    >
+      <div
+        class="sidebar"
+        data-color="azure"
+        data-background-color="black"
+        data-image="{% static 'assets/img/sidebar-2.jpg'%}"
+      >
+        <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+        <div class="logo">
+          <a href="#" class="simple-text logo-normal">
+            <img
+              src="https://www.iasplus.com/en/images/responsive/badges/g20/@@images/465e1ae9-46a0-4131-b3d0-984fcbb8233a.png"
+            />
+            <br />
+            GROUP 20
+          </a>
+        </div>
+        <div class="sidebar-wrapper">
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'profile_pat.html' %}">
+                <i class="material-icons">person</i>
+                <p>Profile</p>
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'bookapp.html' %}">
+                <i class="material-icons">content_paste</i>
+                <p>Book Appointment</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'admit_details.html' %}">
+                <i class="material-icons">content_paste</i>
+                <p>Admit Details</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'yourhealth.html' %}">
+                <i class="material-icons">favorite</i>
+                <p>Your Health</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'calladoc.html' %}">
+                <i class="material-icons">library_books</i>
+                <p>Call A Doc</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'medicalreport.html' %}">
+                <i class="material-icons">favorite</i>
+                <p>Medical Reports</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'feedback.html' %}">
+                <i class="material-icons">bubble_chart</i>
+                <p>Feedback</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout' %}">
+                <i class="material-icons">logout</i>
+                <p>Logout</p>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="main-panel sps">
+        <!-- Navbar -->
+
+        <!-- End Navbar -->
+        <br /><br />
+        
+        <a
+          class="btn btn-primary btn-round btn-lg"
+          href="{% url 'covidvaccine.html' %}"
+          ><b>Apply for Coronvirus Vaccine</b></a
+        >
+        
+        <br /><br /><br />
+
+       
+        <div class="container">
+          <div
+            class="screen"
+            style="width: 70%; margin-left: auto; margin-right: auto"
+          >
+            <div class="screen-header">
+              <div class="screen-header-left">
+                <img src="{% static 'assets/img/btn.png' %}" height="20px" />
+              </div>
+            </div>
+            <div class="screen-body">
+              <div class="screen-body-item left">
+                <div class="app-title" style="text-align: left; color: #28acea">
+                  <span>Book Appointment</span>
+                </div>
+              </div>
+              <div class="screen-body-item" style="width: 80%;margin-right: auto;margin-left: auto;">
+                <form class="app-form" method="POST">
+                  <!-- Very Important csrf Token -->
+                  {% csrf_token %} 
+                  {{ appointmentForm.description|add_class:"form-control form-control-alternative" }}
+                  {{ appointmentForm.description.errors }}
+                  
+                  {{ appointmentForm.calldate|add_class:"form-control form-control-alternative" }}
+                  {{ appointmentForm.calldate.errors }}
+                  
+                  {{ appointmentForm.calltime|add_class:"form-control form-control-alternative" }}
+                  {{ appointmentForm.calltime.errors }}
+                  
+                  {{ appointmentForm.doctor|add_class:"form-control form-control-alternative" }}
+                  {{ appointmentForm.doctor.errors }}
+                  <br>
+                  <input
+                    type="submit"
+                    value="Book"
+                    class="btn btn-primary btn-lg"
+                    style="margin-top: 30px"
+                  />
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <a
+          class="btn btn-primary btn-round btn-lg"
+          href="{% url 'appoint_view_pat.html' %}"
+          ><b>View Appointment Details</b></a
+        >
+        <br />
+        <br />
+        <center>
+        <table class="table sps">
+               <h2 class="sps">On-hold Appointments</h2>
+          <tr class="sps">
+            <th class="sps" >Doctor Name</th>
+            <th class="sps">Description</th>
+            <th class="sps">Department</th>
+            <th class="sps">Appointment Date</th>
+            <th class="sps">Appointment Time</th>
+            <th class="sps">Status</th>
+          </tr>
+        {% for p in p1 %}
+        <tr class="sps">
+          <td class="sps">{{p.0}}</td>
+          <td class="sps">{{p.1}}</td>
+          <td class="sps">{{p.2}}</td>
+          <td class="sps">{{p.3}}</td>
+          <td class="sps">{{p.4}}</td>
+          {% if p.5 %}
+          <td class="sps">Approved</td>
+          {% else %}
+          <td class="sps">On Hold</td>
+          {% endif %}
+          
+        </tr>
+        {% endfor %}
+
+      </table>
+      </center>
+      <div style="min-height: 200px"></div>
+        <br /><br /><br /><br /><br /><br /><br />
+        {% include "hospital/Patient/footer.html" %}
+      </div>
+    </div>
+    <!--   Core JS Files   -->
+    <script src="{% static 'assets/js/core/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/core/popper.min.js' %}"></script>
+    <script src="{% static 'assets/js/core/bootstrap-material-design.min.js' %}"></script>
+    <script src="https://unpkg.com/default-passive-events"></script>
+    <script src="{% static 'assets/js/plugins/perfect-scrollbar.jquery.min.js' %}"></script>
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!--  Google Maps Plugin    -->
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> -->
+    <!-- Chartist JS -->
+    <script src="{% static 'assets/js/plugins/chartist.min.js' %}"></script>
+    <!--  Notifications Plugin    -->
+    <script src="{% static 'assets/js/plugins/bootstrap-notify.js' %}"></script>
+    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+    <!-- <script src="{% static 'assets/js/material-dashboard.js?v=2.1.0' %}"></script> -->
+    <!-- Material Dashboard DEMO methods, don't include it in your project! -->
+    <script src="{% static 'assets/demo/demo.js' %}"></script>
+  </body>
+</html>
